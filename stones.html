@@ -3,56 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мемориальные камни | Незабудка</title>
+  <title>Мемориальные камни</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #fdfdfc;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
       color: #333;
     }
 
-    header {
-      background-color: #e6e2d3;
+    /* Блок возврата */
+    .return-hero {
+      display: block;
+      background-color: #f8f4ef; /* цвет как на главной */
+      color: #333;
       text-align: center;
-      padding: 30px 20px;
-      position: relative;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2em;
-      color: #4a4a2e;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      color: #6a6a55;
-    }
-
-    .back-button {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      background: #d1bfa7;
-      color: #fff;
-      padding: 8px 15px;
+      padding: 60px 20px;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9em;
-      transition: background 0.2s;
+      transition: background 0.3s;
     }
 
-    .back-button:hover {
-      background: #b9a387;
+    .return-hero h2 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #444;
     }
 
-    main {
-      max-width: 1000px;
+    .return-hero p {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+      color: #666;
+    }
+
+    .return-hero:hover {
+      background-color: #f0ebe3;
+    }
+
+    /* Контент */
+    .container {
+      max-width: 900px;
       margin: 40px auto;
       padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     .stones-grid {
@@ -64,70 +60,74 @@
     .stone-card {
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 10px;
       padding: 20px;
+      border-radius: 8px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .stone-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .stone-placeholder {
       width: 100%;
       height: 180px;
-      background-color: #ececec;
-      border-radius: 8px;
+      background: #eee;
+      border-radius: 6px;
       margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-size: 14px;
-      font-style: italic;
     }
 
     footer {
-      background-color: #e6e2d3;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="back-button">На главную</a>
-    <h1>Мемориальные камни</h1>
-    <p>Символ вечной памяти и связи с природой</p>
-  </header>
 
-  <main>
+  <!-- Блок возврата -->
+  <a href="index.html" class="return-hero">
+    <h2>Вернуться к светлой памяти</h2>
+    <p>⬅ На главную</p>
+  </a>
+
+  <!-- Контент -->
+  <div class="container">
+    <h1>Мемориальные камни</h1>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+      Выберите памятный камень, чтобы навсегда сохранить тепло воспоминаний о вашем питомце.
+      Позже здесь будут добавлены изображения разных камней.
+    </p>
+
     <div class="stones-grid">
       <div class="stone-card">
-        <div class="stone-placeholder">[Изображение камня]</div>
-        <h3>Камень «Светлый путь»</h3>
-        <p>Гладкий памятный камень с деликатной гравировкой. Символ спокойствия и гармонии.</p>
+        <div class="stone-placeholder"></div>
+        <h3>Камень памяти «Свет»</h3>
+        <p>Символизирует продолжение жизни и теплоту воспоминаний.</p>
       </div>
 
       <div class="stone-card">
-        <div class="stone-placeholder">[Изображение камня]</div>
-        <h3>Камень «Эхо природы»</h3>
-        <p>Создан из природных минералов. Можно разместить в саду или у дерева памяти.</p>
+        <div class="stone-placeholder"></div>
+        <h3>Камень памяти «Гармония»</h3>
+        <p>Эстетичный камень, подчеркивающий спокойствие и баланс.</p>
       </div>
 
       <div class="stone-card">
-        <div class="stone-placeholder">[Изображение камня]</div>
-        <h3>Камень «Сердце памяти»</h3>
-        <p>Небольшой камень, который удобно хранить дома или носить с собой, сохраняя тепло воспоминаний.</p>
+        <div class="stone-placeholder"></div>
+        <h3>Камень памяти «Вечность»</h3>
+        <p>Для тех, кто хочет подчеркнуть вечную связь со своим питомцем.</p>
       </div>
     </div>
-  </main>
+  </div>
 
   <footer>
-    <p>© 2025 Незабудка</p>
+    © 2025 Незабудка
   </footer>
+
 </body>
 </html>
