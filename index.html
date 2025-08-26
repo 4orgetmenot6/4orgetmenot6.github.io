@@ -3,164 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Незабудка — Ритуальные услуги для питомцев</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lora&display=swap" rel="stylesheet">
+  <title>Незабудка - Память о питомцах</title>
   <style>
-    :root {
-      --bg: #eaf2f9;         /* акварельный голубой фон */
-      --card: #ffffff;       /* белый блок */
-      --accent: #5a8fc4;     /* небесно-синий */
-      --accent-hover: #4a79a3;
-      --muted: #6c7a89;
-      --text: #2c2c2c;
-      --line: #dbe7f1;
-    }
-
     body {
-      background: var(--bg);
-      font-family: 'Lora', serif;
-      color: var(--text);
+      font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #fdf8f3;
+      color: #333;
     }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3 { margin: 0; }
+    .container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
 
-    header {
-      background: linear-gradient(to right, #eaf2f9, #ddeaf5);
-      padding: 40px 20px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
+    /* Hero */
+    .hero { background-color: #eaf2f8; text-align: center; padding: 80px 20px; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 0; }
+
+    /* Услуги */
+    .services { text-align: center; padding: 60px 20px; }
+    .services h2 { font-size: 2rem; margin-bottom: 40px; }
+    .service-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
     }
-
-    header h1 {
-      font-family: 'Cormorant', serif;
-      font-size: 2.5em;
-      color: var(--accent);
-      margin: 0;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: var(--muted);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero h2 {
-      font-family: 'Cormorant', serif;
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      color: var(--text);
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-
-    .btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: 0.3s;
+    .service-item {
+      display: block;
       text-decoration: none;
-      display: inline-block;
+      color: inherit;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .btn:hover {
-      background: var(--accent-hover);
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(90, 143, 196, 0.15);
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .card:hover {
+    .service-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(90, 143, 196, 0.25);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
+    .service-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .service-item p { font-size: 1rem; }
 
-    .card h3 {
-      font-family: 'Cormorant', serif;
-      font-size: 1.5em;
-      margin: 10px 0;
-      color: var(--accent);
+    /* Тёплые слова */
+    .messages { background-color: #f7f3ef; text-align: center; padding: 60px 20px; }
+    .messages h2 { font-size: 2rem; margin-bottom: 20px; }
+    .messages p { font-size: 1.1rem; margin-bottom: 30px; }
+    .messages .btn {
+      display: inline-block; padding: 12px 25px;
+      background-color: #d8bfae; color: #fff; border-radius: 8px;
+      transition: background-color 0.3s;
     }
+    .messages .btn:hover { background-color: #b79b8b; }
+    .messages .example { margin-top: 30px; font-style: italic; font-size: 1.05rem; }
 
-    .card p {
-      color: var(--muted);
-      font-size: 1em;
-    }
+    /* О нас */
+    .about { text-align: center; padding: 60px 20px; }
+    .about h2 { font-size: 2rem; margin-bottom: 20px; }
+    .about p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #ddeaf5;
-      font-size: 0.9em;
-      color: var(--muted);
-      margin-top: 40px;
+    /* Footer */
+    footer { background-color: #eaf2f8; text-align: center; padding: 40px 20px; font-size: 0.95rem; }
+    footer a { color: #333; }
+    footer .contact { margin-bottom: 10px; }
+
+    /* Адаптив */
+    @media(max-width: 768px){
+      .service-grid { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Незабудка</h1>
-    <p>Ритуальные услуги для питомцев</p>
-  </header>
-
+  <!-- Hero -->
   <section class="hero">
-    <h2>Проводим вашего питомца с теплом и заботой</h2>
-    <p>Мы создаём атмосферу нежности и памяти, сохраняя светлое воспоминание о вашем любимце.</p>
-    <a href="#services" class="btn">Наши услуги</a>
-  </section>
-
-  <section id="services" class="section">
-    <div class="card">
-      <h3>Мемориальные камни</h3>
-      <p>Символ вечной памяти и связи с природой.</p>
-      <a href="stones.html" class="btn">Подробнее</a>
-    </div>
-
-    <div class="card">
-      <h3>Урны</h3>
-      <p>Изящные и экологичные решения для сохранения памяти.</p>
-      <a href="urns.html" class="btn">Подробнее</a>
-    </div>
-
-    <div class="card">
-      <h3>Прощание</h3>
-      <p>Трогательные церемонии и сопровождение с любовью.</p>
-      <a href="farewell.html" class="btn">Подробнее</a>
+    <div class="container">
+      <h1>Проводим вашего питомца с теплом и заботой</h1>
+      <p>Сохраняем память, сопровождая с любовью</p>
     </div>
   </section>
 
+  <!-- Услуги -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Наши услуги</h2>
+      <div class="service-grid">
+        <a href="stones.html" class="service-item">
+          <h3>Мемориальные камни с прахом</h3>
+          <p>Красивые памятные камни, чтобы навсегда сохранить память о вашем питомце.</p>
+        </a>
+        <a href="farewell.html" class="service-item">
+          <h3>Личное прощание с кремацией</h3>
+          <p>Мы сопровождаем вашего питомца в последний путь. В изящном деревянном гробике с деликатной внутренней отделкой каждый момент прощания наполнен бережной заботой и индивидуальным вниманием. Гробик мягко передаётся огню, и церемония проходит в спокойной, уважительной атмосфере. Прощание остаётся светлым и достойным, а память о вашем друге — тёплой и живой.</p>
+        </a>
+        <a href="urns.html" class="service-item">
+          <h3>Урны и памятные предметы</h3>
+          <p>Изящные урны и памятные элементы, чтобы хранить тепло воспоминаний о питомце.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тёплые слова -->
+  <section class="messages">
+    <div class="container">
+      <h2>Слова, которые согревают</h2>
+      <p>В моменты прощания порой важнее всего услышать простое слово поддержки. Мы рядом, чтобы помочь вам сохранить светлую память о питомце и почувствовать тепло этого момента.</p>
+      <a href="#top-messages" class="btn">Узнать больше</a>
+      <div class="example">
+        «Любовь остаётся с ним навсегда.»
+      </div>
+    </div>
+  </section>
+
+  <!-- О нас -->
+  <section class="about">
+    <div class="container">
+      <h2>Наша миссия</h2>
+      <p>Мы создаём пространство уважения и тепла, где прощание с питомцем становится частью памяти о его жизни.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    © 2025 Незабудка — с любовью и уважением к памяти питомцев
+    <div class="container">
+      <div class="contact">
+        Телефон: <a href="tel:+7XXXXXXXXXX">+7 (XXX) XXX-XX-XX</a> | 
+        Email: <a href="mailto:info@nezabudka.ru">info@nezabudka.ru</a>
+      </div>
+      <div>© 2025 Незабудка</div>
+    </div>
   </footer>
 
 </body>
