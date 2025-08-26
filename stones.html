@@ -16,7 +16,7 @@
     header {
       background-color: #e6e2d3;
       text-align: center;
-      padding: 30px 20px;
+      padding: 50px 20px 30px 20px; /* Увеличил отступ сверху */
       position: relative;
     }
 
@@ -35,7 +35,7 @@
     .back-button {
       position: absolute;
       left: 20px;
-      top: 20px;
+      top: 15px;
       background: #d1bfa7;
       color: #fff;
       padding: 8px 15px;
@@ -43,6 +43,7 @@
       border-radius: 6px;
       font-size: 0.9em;
       transition: background 0.2s;
+      z-index: 10; /* Чтобы кнопка не "налезала" */
     }
 
     .back-button:hover {
