@@ -1,138 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Незабудка - Память о питомцах</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Урны | Незабудка</title>
   <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fdf8f3;
-      color: #333;
+    :root{
+      --bg:#fdfdfc;
+      --ink:#333;
+      --tint:#e6e2d3;
+      --accent:#d1bfa7;
+      --accent-hover:#b9a387;
+      --muted:#6a6a55;
+      --card:#ffffff;
+      --line:#dddddd;
     }
-    a { text-decoration: none; color: inherit; }
-    h1, h2, h3 { margin: 0; }
-    .container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
 
-    /* Hero */
-    .hero { background-color: #eaf2f8; text-align: center; padding: 80px 20px; }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 0; }
-
-    /* Услуги */
-    .services { text-align: center; padding: 60px 20px; }
-    .services h2 { font-size: 2rem; margin-bottom: 40px; }
-    .service-grid {
-      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.55;
     }
-    .service-item {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      width: 250px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
+    a{ color:inherit; text-decoration:none; }
+
+    header{
+      position:relative;
+      background:var(--tint);
+      text-align:center;
+      padding:56px 20px 32px;
     }
-    .service-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    .back-button{
+      position:absolute;
+      left:20px;
+      top:14px;
+      background:var(--accent);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:6px;
+      font-size:.9em;
+      transition:background .2s;
+      z-index:10;
     }
-    .service-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
-    .service-item p { font-size: 1rem; }
-
-    /* Тёплые слова */
-    .messages { background-color: #f7f3ef; text-align: center; padding: 60px 20px; }
-    .messages h2 { font-size: 2rem; margin-bottom: 20px; }
-    .messages p { font-size: 1.1rem; margin-bottom: 30px; }
-    .messages .btn {
-      display: inline-block; padding: 12px 25px;
-      background-color: #d8bfae; color: #fff; border-radius: 8px;
-      transition: background-color 0.3s;
+    .back-button:hover{ background:var(--accent-hover); }
+    header h1{
+      margin:0;
+      font-size:2.1em;
+      color:#4a4a2e;
     }
-    .messages .btn:hover { background-color: #b79b8b; }
-    .messages .example { margin-top: 30px; font-style: italic; font-size: 1.05rem; }
+    header p{
+      margin:.6rem 0 0;
+      font-size:1.1em;
+      color:var(--muted);
+    }
 
-    /* О нас */
-    .about { text-align: center; padding: 60px 20px; }
-    .about h2 { font-size: 2rem; margin-bottom: 20px; }
-    .about p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+    main{
+      max-width:1000px;
+      margin:32px auto 40px;
+      padding:0 20px;
+    }
 
-    /* Footer */
-    footer { background-color: #eaf2f8; text-align: center; padding: 40px 20px; font-size: 0.95rem; }
-    footer a { color: #333; }
-    footer .contact { margin-bottom: 10px; }
+    .intro{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 2px 6px rgba(0,0,0,.04);
+      margin-bottom:28px;
+      text-align:center;
+      color:#555;
+    }
 
-    /* Адаптив */
-    @media(max-width: 768px){
-      .service-grid { flex-direction: column; align-items: center; }
+    .urns-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px;
+    }
+    .urn-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 2px 6px rgba(0,0,0,.04);
+      text-align:center;
+      transition:transform .2s;
+    }
+    .urn-card:hover{ transform:translateY(-4px); }
+    .urn-placeholder{
+      width:100%;
+      height:180px;
+      background:#ececec;
+      border-radius:8px;
+      margin-bottom:15px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      font-style:italic;
+      color:#888;
+    }
+    .urn-card h3{ margin:0 0 .5rem; font-size:1.15em; }
+    .urn-card p{ margin:0; color:#555; }
+
+    footer{
+      background:var(--tint);
+      text-align:center;
+      padding:20px;
+      font-size:.95em;
+      color:#444;
+    }
+
+    @media (max-width:560px){
+      header{ padding:70px 16px 24px; }
+      .back-button{ top:12px; left:12px; padding:7px 12px; font-size:.85em; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>Проводим вашего питомца с теплом и заботой</h1>
-      <p>Сохраняем память, сопровождая с любовью</p>
-    </div>
-  </section>
+  <header>
+    <a class="back-button" href="index.html">На главную</a>
+    <h1>Урны</h1>
+    <p>Сохраняя память с достоинством</p>
+  </header>
 
-  <!-- Услуги -->
-  <section id="services" class="services">
-    <div class="container">
-      <h2>Наши услуги</h2>
-      <div class="service-grid">
-        <a href="stones.html" class="service-item">
-          <h3>Мемориальные камни с прахом</h3>
-          <p>Красивые памятные камни, чтобы навсегда сохранить память о вашем питомце.</p>
-        </a>
-        <a href="farewell.html" class="service-item">
-          <h3>Личное прощание с кремацией</h3>
-          <p>Мы сопровождаем вашего питомца в последний путь. В изящном деревянном гробике с деликатной внутренней отделкой каждый момент прощания наполнен бережной заботой и индивидуальным вниманием. Гробик мягко передаётся огню, и церемония проходит в спокойной, уважительной атмосфере. Прощание остаётся светлым и достойным, а память о вашем друге — тёплой и живой.</p>
-        </a>
-        <a href="urns.html" class="service-item">
-          <h3>Урны и памятные предметы</h3>
-          <p>Изящные урны и памятные элементы, чтобы хранить тепло воспоминаний о питомце.</p>
-        </a>
+  <main>
+    <div class="intro">
+      <p>
+        Мы предлагаем разные варианты урн — от экологичных биоразлагаемых до декоративных, которые можно хранить дома или в саду памяти. 
+        Каждая форма помогает сохранить светлое воспоминание о вашем питомце.
+      </p>
+    </div>
+
+    <div class="urns-grid">
+      <div class="urn-card">
+        <div class="urn-placeholder">[Изображение био-урны]</div>
+        <h3>Биоразлагаемая урна</h3>
+        <p>Смешивается с землёй и превращается в основу для дерева памяти. Символ продолжения жизни.</p>
+      </div>
+
+      <div class="urn-card">
+        <div class="urn-placeholder">[Изображение деревянной урны]</div>
+        <h3>Деревянная урна</h3>
+        <p>Классическая форма из благородных пород дерева. Тёплая и естественная, для домашнего хранения.</p>
+      </div>
+
+      <div class="urn-card">
+        <div class="urn-placeholder">[Изображение керамической урны]</div>
+        <h3>Керамическая урна</h3>
+        <p>Эстетичный декоративный вариант, который можно разместить дома как напоминание о друге.</p>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Тёплые слова -->
-  <section class="messages">
-    <div class="container">
-      <h2>Слова, которые согревают</h2>
-      <p>В моменты прощания порой важнее всего услышать простое слово поддержки. Мы рядом, чтобы помочь вам сохранить светлую память о питомце и почувствовать тепло этого момента.</p>
-      <a href="#top-messages" class="btn">Узнать больше</a>
-      <div class="example">
-        «Любовь остаётся с ним навсегда.»
-      </div>
-    </div>
-  </section>
-
-  <!-- О нас -->
-  <section class="about">
-    <div class="container">
-      <h2>Наша миссия</h2>
-      <p>Мы создаём пространство уважения и тепла, где прощание с питомцем становится частью памяти о его жизни.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="contact">
-        Телефон: <a href="tel:+7XXXXXXXXXX">+7 (XXX) XXX-XX-XX</a> | 
-        Email: <a href="mailto:info@nezabudka.ru">info@nezabudka.ru</a>
-      </div>
-      <div>© 2025 Незабудка</div>
-    </div>
+    © 2025 Незабудка
   </footer>
 
 </body>
